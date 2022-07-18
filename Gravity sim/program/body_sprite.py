@@ -1,13 +1,13 @@
 import pygame as pg
 import body as b
 import settings
-import sprites
 import queue
 import math
 
 class Body_Sprite(pg.sprite.Sprite):
-    body_group = pg.sprite.Group()
-    bodies = []
+
+    #body_group = []
+
     def __init__(self, mass, radius, pos, vel = (0, 0), in_place = False):
         #call parent constructor (Sprite)
         super().__init__()
@@ -23,9 +23,10 @@ class Body_Sprite(pg.sprite.Sprite):
         self.draw()
 
         self.ptn_hist = queue.Queue(maxsize=settings.MAX_LINES)
+        if settings.MAX_LINES > 0:
+            self.ptn_hist.put(self.rect.center)
 
-        Body_Sprite.bodies.append(self.body)
-        sprites.body_group.add(self)
+        #Body_Sprite.body_group.append(self.body)
     
     def get_body(self):
         return self.body
@@ -33,22 +34,15 @@ class Body_Sprite(pg.sprite.Sprite):
     def draw(self):
         pg.draw.circle(self.image, self.body.get_color(), [self.radius, self.radius], self.radius)
 
-    def update(self, screen, dt):
-        #print(self.rect.center)
-        old_pos = self.rect.center
-        if self.ptn_hist.empty():
-            self.ptn_hist.put(old_pos)
+    def draw_trace(self, screen, point_hist, new_point):
         
-        self.body.update_pos(Body_Sprite.bodies, dt)
-        
-        self.rect.center = self.body.get_pos()
-        new_pos = self.rect.center
-        
-        if self.ptn_hist.full():
-            self.ptn_hist.get()
-        if math.dist(self.ptn_hist.queue[-1], new_pos) > 10:
-            self.ptn_hist.put(new_pos)
-        
+        if point_hist.full():
+            point_hist.get()
+    
+        if point_hist.empty() or math.dist(point_hist.queue[-1], new_point) > 10:
+            
+            point_hist.put(new_point)
+
         prev_point = None
         for point in list(self.ptn_hist.queue):
     
@@ -57,6 +51,23 @@ class Body_Sprite(pg.sprite.Sprite):
                 continue
             pg.draw.line(screen, self.body.get_color(), prev_point, point, 1)
             prev_point = point
+
+
+
+    def update(self, screen, body_sprite_group, dt):
+        #print(self.rect.center)
+        bodies = [sprite.get_body() for sprite in body_sprite_group]
+
+        self.body.update_pos(bodies, dt)
+        
+        self.rect.center = self.body.get_pos()
+        new_pos = self.rect.center
+        
+        if settings.MAX_LINES > 0:
+            self.draw_trace(screen, self.ptn_hist, new_pos)
+
+        
+       
 
         
 

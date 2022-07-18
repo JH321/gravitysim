@@ -20,7 +20,17 @@ class Body:
 
         self.in_place = in_place
 
-        self.color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        self.color = Body.generate_new_color()
+
+    def generate_new_color():
+        new_color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+
+        while new_color in Body.color or new_color < (10, 10, 10):
+            new_color = (random.randint(0, 255), random.randint(0, 255), random.randint(0, 255))
+        
+        Body.color.append(new_color)
+
+        return new_color
 
     def get_mass(self):
         return self.mass
@@ -60,6 +70,7 @@ class Body:
             self.vel = (-self.vel[0], self.vel[1])
         if pos[1] < 0 or pos[1] > settings.HEIGHT:
             self.vel = (self.vel[0], -self.vel[1])
+    
     def get_accel(self):
         return self.accel
 
