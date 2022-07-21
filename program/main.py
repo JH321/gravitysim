@@ -51,11 +51,11 @@ class Game():
         ellipse_but_text = self.base_font.render("Elliptical orbit", True, settings.BLACK)
 
         #The rectangle element of the button to set the random mass option
-        random_mass_but = pg.Rect(250, 200, 100, 25)
+        random_mass_but = pg.Rect(250, 200, 150, 25)
         settings.RANDOM_MASS = False
 
         #The rectangle element of the button to set the Barnes Hut algorithm option
-        enable_b_h_opt_but = pg.Rect(250, 250, 100, 25)
+        enable_b_h_opt_but = pg.Rect(250, 250, 225, 25)
         settings.B_H_OPTIMIZATION = False
 
         #The rectangle element of the button to start up the n-body option
@@ -63,8 +63,9 @@ class Game():
         n_but_text = self.base_font.render("n-bodies", True, settings.BLACK)
         
         #The rectangle element of the text box to take in the value of n from the user (n for the number of bodies to create in the sim)
-        n_text_box_label = self.base_font.render("Enter n for n-bodies sim", True, settings.BLACK)
         n_text_box = pg.Rect(250, 300, 100, 25)
+        n_text_box_label = self.base_font.render("Enter n for n-bodies sim", True, settings.BLACK)
+       
 
         #Variable to store whether the textbox is active and actively taking in user input from the keyboard
         n_text_box_active = False
@@ -175,7 +176,7 @@ class Game():
 
             pg.draw.rect(screen, color, n_text_box)
             n_text_box_text = self.base_font.render(n_text, True, settings.BLACK)
-            loc = (n_text_box.topleft[0], n_text_box.topleft[1] - n_text_box.size[1])
+            loc = (n_text_box.topleft[0], n_text_box.topleft[1] - n_text_box.size[1] + 10)
             screen.blit(n_text_box_label, loc)
             screen.blit(n_text_box_text, n_text_box.topleft)
 
