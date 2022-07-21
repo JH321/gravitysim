@@ -24,7 +24,7 @@ body.py: This module holds the Body class. The Body class represents an individu
 
 Barnes_Hut_tree.py: This module holds the B_H_Tree class. This class represents the quadtree that is used in the Barnes Hut algorithm. It holds methods for constructing such a tree from a list of Body objects on the screen, and getting the induced acceleration on a Body.
 
-Barnes_Hut_tree_node.py: This module holds the B_H_Tree_Node class. THis class represents a node in the quadtree. It handles all the operations necessary for a node in the quadtree used in the Barnes Hut algorithm. These include identifying the node as a inner, external, or empty node, constructing children nodes while correctly dividing the quadrant into 4 subquadrants, keeping track of total mass and center of mass of an internal node. 
+Barnes_Hut_tree_node.py: This module holds the B_H_Tree_Node class. THis class represents a node in the quadtree. It handles all the operations necessary for a node in the quadtree used in the Barnes Hut algorithm. These include identifying the node as an inner, external, or empty node, constructing children nodes while correctly dividing the quadrant into 4 subquadrants, keeping track of total mass and center of mass of an internal node. 
 
 Issues:
 
