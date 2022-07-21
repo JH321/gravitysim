@@ -14,6 +14,11 @@ The Barnes Hut algorithm was implemented by myself. However, it has significant 
 The Barnes Hut algorithm was implemented by using this website as the reference:
 https://www.cs.princeton.edu/courses/archive/fall03/cs126/assignments/barnes-hut.html
 
+Dependencies:
+
+pygame: https://www.pygame.org/
+treelib: https://treelib.readthedocs.io/en/latest/
+
 Structure:
 
 main.py: This module initializes pygame, sets up the simulation, and displays everything to the screen.
