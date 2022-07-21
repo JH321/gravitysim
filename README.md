@@ -7,6 +7,8 @@ For anybody who stumbled upon this and is thinking of creating their own n-body 
 
 This is my own personal attempt at creating a crude n-body simulation. It was created using Python and the Pygame module. The Pygame module was convenient for graphically displaying the n-body simulation.
 
+The simulation offers two ways of simulating gravitational attraction. The first is the naive brute force method that relies on summing up all forces and using the principle of superposition to find the net force and, hence, the net acceleration. The second method is the Barnes Hut algorithm.
+
 The Barnes Hut algorithm was implemented by myself. However, it has significant issues that I am unable to figure out or fix. More details in the issues section. 
 
 The Barnes Hut algorithm was implemented by using this website as the reference:
