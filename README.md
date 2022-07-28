@@ -1,6 +1,10 @@
 # gravitysim
 rough n-body simulation
 
+Demonstration:
+
+https://www.youtube.com/watch?v=s7JuMNetI4I&t=144s
+
 Intro:
 
 For anybody who stumbled upon this and is thinking of creating their own n-body sim in Python and Pygame, I highly recommend looking into different modules more suited for accurate simulations or a different language altogether. After creating this attempt, my biggest regret is spending my time to create this in Python. I believe Python is too slow for this endeavor and I should have done more research before committing to Python.
