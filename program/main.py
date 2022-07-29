@@ -189,8 +189,8 @@ class Game():
         
         #Creates random masses for the bodies if settings.RANDOM_MASS is True
         if settings.RANDOM_MASS:
-            m1 = random.randint(5, 200)
-            m2 = random.randint(5, 200)
+            m1 = random.randint(10, 200)
+            m2 = random.randint(10, 200)
         else:
             m1 = 50
             m2 = 100
@@ -230,7 +230,7 @@ class Game():
 
         for n in range(n_tot):
             if settings.RANDOM_MASS:
-                mass = random.randint(5, 200)
+                mass = random.randint(10, 200)
             else:
                 mass = 50
             p1 = bs.Body_Sprite(mass, mass / 10, (random.randint(0, settings.WIDTH), random.randint(0, settings.HEIGHT)), vel=(random.randint(-20, 20), random.randint(-20, 20)))
@@ -274,7 +274,7 @@ class Game():
                     
                     #When a user clicks on the screen, a body will be generated at the mouse point
                     if settings.RANDOM_MASS:
-                        mass = random.randint(5, 200)
+                        mass = random.randint(10, 200)
                     else:
                         mass = 50
                     p1 = bs.Body_Sprite(mass, mass / 10, mouse_pos, vel=(random.randint(-20, 20), random.randint(-20, 20)))
