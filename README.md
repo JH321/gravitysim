@@ -13,7 +13,7 @@ This is my own personal attempt at creating a n-body simulation from scratch. It
 
 The simulation offers two ways of simulating gravitational attraction. The first is the naive brute force method that relies on summing up all forces and using the principle of superposition to find the net force and, hence, the net acceleration. The second method is the Barnes Hut algorithm.
 
-The Barnes Hut algorithm was implemented by myself. However, it has significant issues that I am unable to figure out or fix. More details in the issues section. 
+The Barnes Hut algorithm was implemented by myself. More details in the issues section. 
 
 The Barnes Hut algorithm was implemented by using this website as the reference:
 https://www.cs.princeton.edu/courses/archive/fall03/cs126/assignments/barnes-hut.html
