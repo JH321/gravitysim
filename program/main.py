@@ -342,17 +342,17 @@ if __name__ == "__main__":
     game = Game()
 
     #Create a Body_Sprite object like:
-    p1 = bs.Body_Sprite(50, 5, (50, 50), (10, 10))
+    '''p1 = bs.Body_Sprite(50, 5, (50, 50), (10, 10))
     p2 = bs.Body_Sprite(50, 5, (250, 100), (4, 21))
     p3 = bs.Body_Sprite(50, 5, (400, 300), (-10, 5))
     p4 = bs.Body_Sprite(50, 5, (240, 330), (-10, 5))
-    p5 = bs.Body_Sprite(50, 5, (200, 250), (-5, -31))
+    p5 = bs.Body_Sprite(50, 5, (200, 250), (-5, -31))'''
     #and add it to the game's sprite list using
-    game.add_body_sprite(p1)
+    '''game.add_body_sprite(p1)
     game.add_body_sprite(p2)
     game.add_body_sprite(p3)
     game.add_body_sprite(p4)
-    game.add_body_sprite(p5)
+    game.add_body_sprite(p5)'''
     #and the simulation should be started with zero n bodies. Going back to the main
     #menu will clear the sprite list. So a restart must be done to run the sim with 
     #this set up again.
