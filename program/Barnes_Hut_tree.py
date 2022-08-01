@@ -10,7 +10,7 @@ class B_H_Tree():
     The B_H_Tree object represents the quadtree used in the Barnes Hut algorithm. It handles
     construction of such a tree and calculating net acceleration on a body from such a tree.
     There is a major issue with this implementation with an unknown cause. It is fairly evident that
-    the tree is constructed correctly and acceleration is calculation correctly. However, this implementation proves
+    the tree is constructed correctly and acceleration is calculated correctly. However, this implementation proves
     significantly slower than the brute force when it is meant to be able to simulate more bodies in a faster and 
     more efficient way. The issue may stem from python itself.
     

@@ -15,7 +15,7 @@ class Game():
 
     Attributes:
         base_font (pygame.font.Font): Controls the base font used when drawing text to the screen.
-        body_sprite_group (pygame.sprite.Group): A list of all the Sprites that each represent a Body object. 
+        body_sprite_group (pygame.sprite.Group): A list of all the Sprites that each represent a Body object to be drawn onto the screen. 
     '''
     def __init__(self):
         #initialize pygame
@@ -25,13 +25,38 @@ class Game():
         
         self.body_sprite_group = pg.sprite.Group()
 
-        #main loop 
+
+    def start_game(self):
+        '''
+        Starts the simulation. All the manual set up should be done prior to calling this method.
+        '''
+
+        #main simulation loop 
         while True:
             for event in pg.event.get():
                 if event.type == pg.QUIT:
                     Game.quit()
             self.menu()
             self.run()
+
+    def get_body_group(self):
+        '''
+        Returns the sprite group that holds the body sprites being drawn onto the screen.
+
+        Returns:
+            A list of all the Sprites that each represent a Body object to be drawn onto the screen. 
+        '''
+        return self.body_sprite_group
+    
+    def add_body_sprite(self, body_sprite):
+        '''
+        Adds a Sprite that represents a Body object to be drawn onto the screen.
+
+        Args:
+            body_sprite (body_sprite.Body_Sprite): The body sprite that is being added to the sprite group.
+        '''
+        self.body_sprite_group.add(body_sprite)
+    
 
     def menu(self):
         '''
@@ -314,4 +339,23 @@ class Game():
 
 
 if __name__ == "__main__":
-    Game()
+    game = Game()
+
+    #Create a Body_Sprite object like:
+    p1 = bs.Body_Sprite(50, 5, (50, 50), (10, 10))
+    p2 = bs.Body_Sprite(50, 5, (250, 100), (4, 21))
+    p3 = bs.Body_Sprite(50, 5, (400, 300), (-10, 5))
+    p4 = bs.Body_Sprite(50, 5, (240, 330), (-10, 5))
+    p5 = bs.Body_Sprite(50, 5, (200, 250), (-5, -31))
+    #and add it to the game's sprite list using
+    game.add_body_sprite(p1)
+    game.add_body_sprite(p2)
+    game.add_body_sprite(p3)
+    game.add_body_sprite(p4)
+    game.add_body_sprite(p5)
+    #and the simulation should be started with zero n bodies. Going back to the main
+    #menu will clear the sprite list. So a restart must be done to run the sim with 
+    #this set up again.
+
+    game.start_game()
+
