@@ -25,7 +25,7 @@ treelib: https://treelib.readthedocs.io/en/latest/
 
 Structure:
 
-main.py: This module initializes pygame, sets up the simulation, and displays everything to the screen.
+main.py: This module initializes pygame, sets up the simulation, and displays everything to the screen. To add your own bodies, go to the bottom of the file to see the code that is executed to start the game. There, you can create your own Body_Sprite objects and add them to the game's sprite list.
 
 body_sprite.py: This module represents a Body object as a pygame Sprite object through the Body_Sprite class. In truth, this module is redundant and was more of a choice made early in development with the belief that it would help with code maintainability. It may be removed in the future. This module basically wraps the Body object and allows the Body object to be easily drawn to the pygame screen as a Sprite.
 
@@ -37,6 +37,6 @@ Barnes_Hut_tree_node.py: This module holds the B_H_Tree_Node class. This class r
 
 Issues:
 
-The Barnes Hut algorithm is significantly slower with increasing input sizes than the brute force method. This should not happen. The brute force method theoretically runs in O(n^2) time while the Barnes Hut algorithm runs in O(nlog(n)) time. After doing my own testing, I found that significant time is being allocated to constructing the tree as well as find the acceleration induced on each body in the tree. I did further testing to ensure that the quadtree was being constructed correctly. Also, qualitatively speaking, the bodies behave identically to the brute force method. I could not come to a solid conclusion for why my implementation was not working fast enough. In the end, the possibilities are that there is a fault with my implementation that I am unable to see, Python object creation and storage is too slow, or both are the reasons for this issue.
+The Barnes Hut algorithm is significantly slower with increasing input sizes than the brute force method. This should not happen. The brute force method theoretically runs in O(n^2) time while the Barnes Hut algorithm runs in O(nlog(n)) time. After doing my own testing, I found that significant time is being allocated to constructing the tree as well as find the acceleration induced on each body in the tree. I did further testing to ensure that the quadtree was being constructed correctly. Also, qualitatively speaking, the bodies behave identically to the brute force method. I could not come to a solid conclusion for why my implementation was not working fast enough. In the end, the possibilities are that there is a fault with my implementation that I am unable to see, Python object creation and storage and recursion is too slow, or both are the reasons for this issue.
 
 Whenever the pygame screen is dragged by the user while the simulation is running, the current frame freezes. When the user lets go of the screen, the next frame is drawn. The time between these two frames is then inputted to update the simulation, resulting in bodies being incorrectly updated on the screen. Pygame offers no way of determining if the screen is being dragged that I could find. As a result, this issue still persists.
